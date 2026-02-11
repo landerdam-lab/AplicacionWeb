@@ -1,0 +1,123 @@
+:root {
+    --primary: #2563eb;
+    --danger: #ef4444;
+    --bg-body: #f1f5f9;
+    --bg-card: #ffffff;
+    --text-main: #1e293b;
+    --text-light: #64748b;
+    --radius: 8px;
+    --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body.login-page {
+    background: var(--bg-body);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.login-header {
+    background: white;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: var(--shadow);
+}
+
+.header-logo img {
+    height: 40px;
+}
+
+.header-link {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.main-login {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.login-container {
+    max-width: 450px;
+    width: 100%;
+}
+
+.card {
+    background: var(--bg-card);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 2.5rem;
+}
+
+.login-title {
+    color: var(--primary);
+    text-align: center;
+    margin-bottom: 0.5rem;
+    font-size: 1.8rem;
+}
+
+.login-subtitle {
+    color: var(--text-light);
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.login-label {
+    font-weight: 600;
+    color: #334155;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.login-input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+.btn {
+    background: var(--primary);
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    width: 100%;
+    font-size: 1.1rem;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.alert-error {
+    background: #fee2e2;
+    color: #991b1b;
+    padding: 1rem;
+    border-radius: var(--radius);
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.footer-text {
+    text-align: center;
+    color: var(--text-light);
+    padding: 2rem;
+    font-size: 0.9rem;
+}
