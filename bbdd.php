@@ -3,7 +3,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 // --- CONFIGURACIÓN DE CONEXIÓN ---
-define('DB_HOST', '192.168.0.72/ORCLCDB'); 
+define('DB_HOST', '192.168.1.137/ORCLCDB'); 
 define('DB_USER', 'tienda_informatica');
 define('DB_PASS', 'Almi12345');
 

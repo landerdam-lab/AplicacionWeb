@@ -30,7 +30,6 @@ $productos = getAllProductosAdmin();
     <title>Productos | Admin</title>
     <link rel="stylesheet" href="css/estilos.css">
     <style>
-        /* Estilos específicos para los botones de acción con texto */
         .actions-group {
             display: flex;
             gap: 8px;
@@ -133,13 +132,17 @@ $productos = getAllProductosAdmin();
                                 <td>
                                     <div class="actions-group">
                                         <a href="editar_producto.php?id=<?= $prod['ID_COMPONENTE'] ?>" 
-                                           class="btn-action btn-edit">
-                                            Editar
+                                           class="btn-action btn-edit" 
+                                           title="Editar"
+                                           onclick="irAEditar(event, this.href)">
+                                            <img src="images/lapiz.png" alt="Editar" style="width: 20px; height: 20px; vertical-align: middle;">
                                         </a>
+
                                         <a href="?borrar=<?= $prod['ID_COMPONENTE'] ?>" 
                                            class="btn-action btn-delete"
-                                           onclick="return confirm('¿Realmente quieres borrar el producto «<?= htmlspecialchars($prod['DESCRIPCION'] ?? 'Sin nombre') ?>»? Esta acción no se puede deshacer.')">
-                                            Borrar
+                                           title="Borrar"
+                                           onclick="confirmarBorrado(event, this.href, '<?= htmlspecialchars($prod['DESCRIPCION'] ?? 'Sin nombre', ENT_QUOTES) ?>')">
+                                            <img src="images/papelera.png" alt="Borrar" style="width: 20px; height: 20px; vertical-align: middle;">
                                         </a>
                                     </div>
                                 </td>
@@ -151,5 +154,32 @@ $productos = getAllProductosAdmin();
             <?php endif; ?>
         </div>
     </div>
+
+    <script>
+        function irAEditar(event, url) {
+            event.preventDefault(); 
+            
+            var audio = new Audio('images/editar.mp3');
+            audio.play().catch(e => console.log("Error audio edit:", e));
+
+            setTimeout(function() {
+                window.location.href = url;
+            }, 400);
+        }
+
+        function confirmarBorrado(event, url, nombreProducto) {
+            event.preventDefault(); 
+            let mensaje = "¿Realmente quieres borrar el producto «" + nombreProducto + "»? Esta acción no se puede deshacer.";
+            
+            if (confirm(mensaje)) {
+                var audio = new Audio('images/papelera.mp3');
+                audio.play().catch(e => console.log("Error audio delete:", e));
+
+                setTimeout(function() {
+                    window.location.href = url;
+                }, 600);
+            }
+        }
+    </script>
 </body>
 </html>
